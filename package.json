@@ -17,5 +17,8 @@
     "midudev"
   ],
   "author": "Luis Fernando Peña Calixtro - Peña",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "picocolors": "^1.0.0"
+  }
 }
