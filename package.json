@@ -1,0 +1,21 @@
+{
+  "name": "curso-node",
+  "version": "1.0.0",
+  "description": "El mejor curso de Node por 0 euros",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Luisfernandocalixto/"
+  },
+  "keywords": [
+    "curso",
+    "node",
+    "node.js",
+    "midudev"
+  ],
+  "author": "Luis Fernando Peña Calixtro - Peña",
+  "license": "ISC"
+}
