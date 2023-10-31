@@ -26,3 +26,7 @@ function findAvailablePort(desiredPort) {
 }
 
 module.exports = { findAvailablePort }
+
+// "dev:1": "nodemon ./clase-2/1.http.js",
+// "dev:2": "nodemon ./clase-2/2.routing.js"
+// 

@@ -4,7 +4,7 @@
   "description": "El mejor curso de Node por 0 euros",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
   "license": "ISC",
   "dependencies": {
     "picocolors": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
