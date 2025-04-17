@@ -8,7 +8,7 @@ const processRequest = (req, res) => {
     const { method, url } = req
 
     switch (method) {
-        case 'Get':
+        case 'GET':
             switch (url) {
                 case '/pokemon/ditto':
                     res.setHeader('Content-Type', 'application/json; charset=utf-8')

@@ -1,0 +1,24 @@
+const { DATABASE_URI,
+    MYSQL_HOST,
+    MYSQL_USER,
+    MYSQL_PORT,
+    MYSQL_PASSWORD,
+    MYSQL_DATABASE,
+
+} = process.env;
+
+const DATABASE = `${DATABASE_URI}`
+const URL_HOST = `${MYSQL_HOST}`
+const URL_USER = `${MYSQL_USER}`
+const URL_PORT = `${MYSQL_PORT}`
+const URL_PASSWORD = `${MYSQL_PASSWORD}`
+const URL_DATABASE = `${MYSQL_DATABASE}`
+
+export {
+    DATABASE,
+    URL_HOST,
+    URL_USER,
+    URL_PORT,
+    URL_PASSWORD,
+    URL_DATABASE,
+}

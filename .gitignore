@@ -2,7 +2,7 @@
 .DS_store
 
 # Ignora la carpeta node_modules
-node_modules
+/node_modules
 
 # Ignora todos los archivos de texto
 *.txt
@@ -12,3 +12,31 @@ node_modules
 
 # Ignora archivos de configuración SASS
 .sass-cache
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+/node_modules
+./node_modules
+.env
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

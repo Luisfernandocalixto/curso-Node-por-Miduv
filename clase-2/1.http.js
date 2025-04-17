@@ -12,8 +12,10 @@ const processRequest = (req, res) => {
     }
     else if (req.url === '/imagen.png') {
 
-        fs.readFile('./clase-2/placa.png', (err, data) => {
+        fs.readFile('./placa.png', (err, data) => {
             if (err) {
+                console.log(err);
+                
                 res.statusCode = 500
                 res.end('<h1>500 Internal Server Error</h1>');
 

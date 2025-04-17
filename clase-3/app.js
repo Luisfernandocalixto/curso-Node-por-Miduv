@@ -4,6 +4,7 @@ const cors = require('cors')
 
 const movies = require("./movies.json") // require -> JSON 
 const { validateMovie, validatePartialMovie } = require("./schemas/movies");
+const e = require('cors');
 
 const app = express();
 app.use(express.json())
@@ -11,9 +12,11 @@ app.use(cors({
     origin: (origin, callback) => {
         const ACCEPTED_ORIGINS = [
             'http://localhost:8080',
+            'http://192.168.1.67:8080',
             'http://localhost:1234',
             'https://movies.com',
-            'https://midudev.dev'
+            'https://midudev.dev',
+            'http://127.0.0.1:5500',
         ]
 
         if (ACCEPTED_ORIGINS.includes(origin)) {
@@ -34,6 +37,11 @@ app.disable("x-powered-by") // desabilitar el header X-Powered-By: Express
 // http://localhost:1234 ->  http://localhost:1234
 // res.header('Access-Control-Allow-Origin', '*')
 // Todos los recursos que sean MOVIES se identifica con/Movies
+
+app.get('/', (req, res) => {
+    res.json({ message: 'hola mundo' })
+})
+
 
 app.get('/movies', (req, res) => {
     const { genre } = req.query;
@@ -89,33 +97,39 @@ app.delete('/movies/:id', (req, res) => {
 
 })
 
-app.patch('/movies:id', (req, res) => {
-    const result = validatePartialMovie(req.body)
+app.patch('/movies/:id', (req, res) => {
+    try {
 
-    if (!result.success) {
-        return res.status(400).json({ error: JSON.parse(result.error.message) })
+        const result = validatePartialMovie(req.body)
+
+        if (!result.success) {
+            return res.status(400).json({ error: JSON.parse(result.error.message) })
+        }
+
+        const { id } = req.params;
+        const movieIndex = movies.findIndex(movie => movie.id === id)
+
+        if (movieIndex === -1) {
+            return res.status(404).json({ message: ' Movie not found' })
+        }
+
+        const updateMovie = {
+            ...movies[movieIndex],
+            ...result.data
+        }
+
+        movies[movieIndex] = updateMovie
+
+        return res.json(updateMovie)
+    } catch (error) {
+        console.error(error);
+        
     }
-
-    const { id } = req.params;
-    const movieIndex = movies.findIndex(movie => movie.id === id)
-
-    if (movieIndex === -1) {
-        return res.status(404).json({ message: ' Movie not found' })
-    }
-
-    const updateMovie = {
-        ...movies[movieIndex],
-        ...result.data
-    }
-
-    movies[movieIndex] = updateMovie
-
-    return res.json(updateMovie)
 
 })
 
 const PORT = process.env.PORT ?? 1234
 
 app.listen(PORT, () => {
-    console.log(`Server litening on port http://localhost:${PORT}`);
+    console.log(`Server listening on port http://localhost:${PORT}`);
 })

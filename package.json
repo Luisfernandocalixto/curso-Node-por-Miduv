@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "El mejor curso de Node por 0 euros",
   "main": "index.js",
-  "scripts": {
-    
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/Luisfernandocalixto/"
@@ -19,9 +17,10 @@
   "author": "Luis Fernando Peña Calixtro - Peña",
   "license": "ISC",
   "dependencies": {
-    "picocolors": "^1.0.0"
+    "picocolors": "1.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "3.0.1",
+    "standard": "17.1.2"
   }
 }

@@ -34,6 +34,10 @@ app.use(express.json())
 
 // })
 
+app.get('/', (req, res) => {
+    res.send('<h1>Hola mundo </h1>')
+})
+
 app.get('/pokemon/ditto', (req, res) => {
     res.json(ditto)
 })
